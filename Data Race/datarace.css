@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1%;
+    margin: 2%;
+}
+
+h1, h5 {
+    text-align: center;
+}
+
+ol {
+    counter-reset: list;
+}
+ol > li {
+    list-style: none;
+}
+ol > li:before {
+    content: counter(list) ") ";
+    counter-increment: list;
+}
+
+.ref {
+    counter-reset: list;   
+}
+.ref > li {
+    list-style: none;
+    padding-top: 1%;
+}
+.ref > li:before {
+    content: "[" counter(list) "] ";
+    counter-increment: list;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+.right {
+    display: flex;
+    justify-content: flex-end;
+}

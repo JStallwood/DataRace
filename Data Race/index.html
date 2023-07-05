@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+        <link rel="stylesheet" href="./datarace.css">
+    </head>
+    <body>
+        <div>
+            <h1>Data Race: Exploring the Effects of Time Intervals on the Strategic Action Space within the Stable Marriage Problem with Social Media Agents.</h1>
+            <h5>James Stallwood, School of Mathematical Sciences, University of Southampton, UK</h5>
+            <h2>1. Introduction</h2>
+            <p>Social media endorsements for brands by influencers have been demonstrated to be an effective means of increasing brand awareness, outreach, and sales for organizations. Using social media influencers for such endorsements is a balancing act of finding an appropriate face for the product/service and managing the expectations of that influencer's follower base in terms of authenticity and parasocial values [1][2]. The Stable Marriage problem presents an interesting example model for looking at how organizations and influencers might seek each other out and pair within any given time interval. However, the contention of this paper is that this fixed-model of the pairings is susceptible to intra-dependent changes in time and that by exploring these unique facets of time functions on preference choice functions for the organizations and influencers respectively, will draw interesting conclusions for modelling the strategic action space for both agents.</p>
+            <p>
+                To begin, we shall assume that we have two categories of agents. The first category is the "Influencers" and the second category are "Organizations". Influencers are assumed to be professional social media users, with large followings that can be utilized by Organizations to present products, services, or public messages to a wider audience. We shall denote an influencer by \(i, i \in \mathcal{I}\) and an organization by \(o, o \in \mathcal{O}\).
+            </p>
+            <p>
+                <h3>1.1 On Influencers as Agents</h3>
+                For any influencer \(i\), they will have a a set of values \(V_i\) which is so ordered as to match the individual influencer's alignment preferences for organizational endorsements. These values form an ordered set from most to least important and are formed from the following assumptions:<br><br>
+                <b>Influencer Assumptions</b>
+                <ol>
+                    <li>Influencers wish to maximize their following and will form alignments with organizations that they believe will increase their total number of followers [1].</li>
+                    <li>Influencers will generally avoid reputation loss if possible, unless that reputation loss leads to a net gain in the total number of followers (<i>see 4.</i>) [2].</li>
+                    <li>Whether an influencer's presented values originate with them or their followers is immaterial. What matters is that the influencer is seen to be consistent with regards to any particular value and presents a mode of authenticity [3][4].</li>
+                    <li>Any changes in an influencer's values must be undertaken with enough demographic traction as to both support and warrant the change [2][4][5].</li>
+                </ol>
+            </p>
+            <p>
+                The reasoning for these assumptions is given as follows:
+                <ol>
+                    <li>With a larger audience an influencer is most likely to achieve greater demographic outreach. The greater the demographic outreach, assuming a suitable demographic, the more likely the influencer will attract endorsement deals from organizations.</li>
+                    <li>Reputation loss with a particular demographic will reduce demographic reach and, therefore, the likelihood of endorsement opportunities.</li>
+                    <li>The perception of influencer authenticity is known to be an important factor in keeping followers and growing an influencer's follower base.</li>
+                    <li>If an influencer makes a public facing change to their perceived values AND the new demographic potential is greater than the previous potential, then the change represents a sound shift from the perspective of the first assumption.</li>
+                </ol>
+            </p>
+            <p>
+                For any influencer, we can characterize them as an entity of demographic sets, and each demographic set being a demographic overview. Suppose we have an influencer, \(i_0\), who has a following (demographic entity, \(D^{a}_{i_0}\)) in promoting, for example, carbon-neutral technology. This demographic entity could be described as:
+                <br><br>
+                <div style="margin-left: 30%;"> \(D^{a}_{i_0}\) = {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age Range : 18 to 30,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(\text{Age}_{\mu}\) : 27,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(\text{n}_{TOTAL}\) : 4.2m,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(\text{n}_{ACTIVE}\) : 800k,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Platforms : {Instagram,...},<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(V^{D^{a}_{i_0}}_{i_0}\) : {Carbon Neutrality, Affordability, Ethical Production, ...},<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br> 
+                }</div>
+            </p>
+            <p>
+                Here the values component of the demographic entity element \(V^{D^{a}_{i_0}}_{i_0}\) can be read as "the values presented by \(i_0\) as perceived by the demographic entity \(a\) of \(i_0\)". The superscript \(a\) denotes this demographic as the key demographic of interest as it could be the case that an influencer has outreach to multiple demographics. This leads to a fundamental assumption of followers, namely:
+                <p><b><i>A follower will welcome content that matches the values presented by an influencer, maintain neutrality to those that do not counter those values, and will be hostile to content which appears to be a reversion of those values</i></b> [6][7][8].</p>
+            </p>
+        </div>
+        <div>
+            <h3>1.2 On Organizations as Agents</h3>
+            When it comes to organizations, there are a few key assumptions to make as well. These are that:<br><br>
+            <b>Organization Assumptions</b>
+            <ol>
+                <li>An organization engages with an influencer for endorsement for their product or service, hoping to maximize the outreach of that endorsement, and will ultimately prefer influencers that can assist in maximizing that outreach [7][9].</li>
+                <li>The resource cost difference in engaging with individual influencers of a similar perceived outreach opportunity is sufficiently negligible that this resource cost difference will not be sufficiently significant in determining an organization's influencer preferences.</li>
+            </ol>
+        </div>
+        <div>
+            <p>
+                Organizations can themselves be considered entities in a similar way to influencers. In this scenario we might think of an organization as congruent with their endorsement proposal. Thus an entity structure for an organization, \(o\), within a pool of potential organizations, \(O, O \subset \mathcal{O}\), can be presented like this:
+                <br><br>
+                <div style="margin-left: 30%;"> \(o\) = {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perceived Quality : ...,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Brand Trust : ...,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Brand Image : ...,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical Ratio : \(\frac{\text{Perceived Quality}}{\text{Brand Trust}}\),<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(V\) : {...},<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br> 
+                }</div>
+                Here \(V_o\) is as any \(V_i\) described previously. An important impact factor in our later calculations is the Critical Ratio, or \(CR_o\). This ratio of Perceived Quality and Brand Trust has been identified as significant factor in the success rates of social media endorsements [10][11]. There are multiple techniques for deriving values for Brand Image, Brand Trust, and Perceived Quality (e.g. \(\beta\)-rating Qualitative Surveys), however, it is of vital importance that complimentary and consistent techniques are applied in these derivations to ensure a valid \(CR_o\) score. Whilst Brand Image is an important factor, it is significantly less important than Perceived Quality and Brand Trust [10][11]. For the sake of nuance an application of \(CR_o\) might be modified by adding \(ln(Brand Image)\) to the ratio but this will be ommited in our further uses of \(CR_o\).
+            </p>
+        </div>
+        <div>
+            <h3>1.3 Calculating an Organization's Preferences</h3>
+            <p>
+                How then might an organization choose whether or not they should present an endorsement deal before a particular influencer? If we allow our previous assumptions to be axioms in making this choice, then the first thing any organization \(o\) should do is compare their values, and the values of their product or service, with a those of the potential influencer within their target demographic. One rudimentary way of doing this would be to use a Semantic Sensitive Cosine Similarity test (SSCS), wherein different value strings (or "tags") are equated positively (1), if they are semantically similar, and neutrally (0), if they are semantically unrelated. 
+                The results of the SSCS could be used in a raw state or be subject to some given threshold, \(\theta\), and thus, form a rule of alignment. For example:<br>
+                $$\text{Initial Preference} = SSCS(V^{D^{a}_{i}}_{i}, V_o)D^{a}_{i}[\text{n}_{TOTAL}]$$
+                OR
+                $$
+                    \text{Initial Preference} = \left\{ \begin{array}{l} SSCS(V^{D^{a}_{i}}_{i}, V_o)D^{a}_{i}[\text{n}_{TOTAL}] \Leftrightarrow SSCS(V^{D^{a}_{i}}_{i}, V_o)\ge \theta \\ 0...m, \text{where } m \text{ is some minimizing factor}  \end{array} \right.
+                $$
+                In essence this initial preference calculation represents a crude percentage of an influencer's total followers for a given demographic according to the value alignment of the influencer and the organization. It should be noted however, that a better calculation might be achieved if \(\text{n}_{ACTIVE}\) is used instead. The usefulness of this initial calculation is that it maintains that a close alignment of values to an influencer with few followers may ultimately be more beneficial than an more distant alignment to an influencer with substantially more. However, this SSCS calculation as it has been described, does not account for contrary or anti-values matches in the value strings. To achieve this we shall simply describe another Semantic Sensitive Cosine Similarity which, as before, grades neutral matches as 0, but this time negative matches as 1.
+                Let us call this new function NSSCS, for Negative Semantic Sensitive Cosine Similarity test. As both the SSCS and NSSCS give values between 0 and 1 and we care about the difference, we will describe the difference of these two functions as \(\Delta c\):
+                $$ \text{Let } \Delta c = SSCS(V^{D^{a}_{i}}_{i}, V_o) - NSSCS(V^{D^{a}_{i}}_{i}, V_o)$$
+                Then:
+                $$
+                \text{Organization's Initial Preference }(\text{IP}_o) = \left\{ \begin{array}{l} \left( \frac{1}{1 + e^{-\Delta c}} \right)D^{a}_{i}[\text{n}_{TOTAL} \lor \text{n}_{ACTIVE}] \Leftrightarrow SSCS(V^{D^{a}_{i}}_{i}, V_o)\ge \theta \\ 0...m, \text{where } m \text{ is some minimizing factor}  \end{array} \right.
+                $$
+            </p>
+            <p>
+                By using a sigmoid function with \(\Delta c\), we can maintain the domain range from 0 to 1 in accounting for the influence of organizational and influencer values in our initial preference calculation. 
+            </p>
+            <p>But what of other demographic entity elements like "platform". One can think of an influencer's follower totals (\(\text{n}_{TOTAL} \text{and n}_{ACTIVE}\)) as being limited by the choice of influencer platform. In this respect the platform acts as a gateway and as the average demographics of those platforms change, so too does the suitability of any influencer predominantly catering to an audience of followers on that platform [12][13]. Thus, if an organization wishes to engage in a particular kind of endorsement with an influencer that is active on that platform and that platform, for whatever reason, is unsuitable for the kind of endorsement, then the organization can rethink its endorsement plan or simply relegate that influencer to the bottom of their preference set. Similarly elements like age ranges, gender bands, etc. are to be used before reaching this step to shortlist potential influencers in the first place [14].</p>
+            <p>We therefore arrive at the ordered set of preferred influencers from this suitable pool, \(I\), for any given organization \(o\) using the \(\text{IP}_o\) function: \(\text{IP}_o \rightarrow\) {\(i_0, ..., i_{|I| - 1}\)}, \(\forall i \in I, I \subset \mathcal{I} \); \(\text{IP}_o(i_0) \ge ... \ge \text{IP}_o(i_{|I|-1})\). <b>N.B:</b> as these preference values are likely to be very large, it would be good practice to normalize them to some appropriate range. It can be taken that as we discuss these IP values further that they have been normalized using some appropriate technique; min-max normalization for example.</p>
+            
+        </div>
+        <div>
+            <h3>1.4 Calculating an Influencer's Preferences</h3>
+            As a starting position it would be reasonable to begin by using the same initial preference function for influencers as organizations. The impact of a value analysis between a potential influencer and organization pairing on an influencer's followers is an important aspect within our influencer assumptions (see 1.1), particularly assumptions 1 and 2. So we shall begin with stating that duplication, with a slight alteration that an influencer is more likely to care about their active followers than the total number of followers [9][14]:
+            $$
+                \text{Influencer's Initial Preference }(\text{IP}_i) = \left\{ \begin{array}{l} \left( \frac{1}{1 + e^{-\Delta c}} \right)D^{a}_{i}[\text{n}_{ACTIVE}] \Leftrightarrow SSCS(V^{D^{a}_{i}}_{i}, V_o)\ge \theta \\ 0...m, \text{where } m \text{ is some minimizing factor}  \end{array} \right.
+                $$
+            For the influencer, \(\left( \frac{1}{1 + e^{-\Delta c}} \right)\) can be considered to be some measurement of authenticity for a given endorsement proposal, and thus, \(\left( \frac{1}{1 + e^{-\Delta c}} \right)D^{a}_{i}[\text{n}_{ACTIVE}]\) is that measure of authenticity scaled across their active followers. Whilst there is some variance in research findings, the effects of authenticity and the critical ratio for social media endorsements have been found to be roughly inversely proportional; that is that as Brand Trust decreases so too does the appearance of authenticity [15][16][17]. Therefore, our initial preference calculation can be modified thus:
+            $$
+                \text{Influencer's Initial Preference }(\text{IP}_i) = \left\{ \begin{array}{l} \left( \frac{1}{1 + e^{-\Delta c}} \right)D^{a}_{i}[\text{n}_{ACTIVE}](\text{CR}_o)^{-1} \Leftrightarrow SSCS(V^{D^{a}_{i}}_{i}, V_o)\ge \theta \\ 0...m, \text{where } m \text{ is some minimizing factor}  \end{array} \right.
+                $$
+            <p>As before with \(\text{IP}_o\) we can use \(\text{IP}_i\) to arrive at the ordered set of preferred organizations from a suitable pool, \(O\), for any given influencer \(i\): \(\text{IP}_i \rightarrow\) {\(o_0, ..., o_{|O| - 1}\)}, \(\forall o \in O, O \subset \mathcal{O} \); \(\text{IP}_i(o_0) \ge ... \ge \text{IP}_i(o_{|O|-1})\).</p>
+        </div>
+        <div>
+            <h3>1.5 Considering Time</h3>
+            In both of these initial preference equations, (\(\text{IP}_o\), \(\text{IP}_i\)), there are time sensitive variables. For \(\text{IP}_o\), the time-sensitive variable is \(D^{a}_{i}[n]\) (regardless of which \(n\) is chosen), which we shall call \(n\) for simplicity. For \(\text{IP}_i\), the time-sensitive variable is \(\text{CR}_o\). By time sensitive we mean that these components are most susceptible to changes over time. Neither influencers nor organizations live in a vacuum and any action taken by these individuals can have marked effects on these two variables. This is particularly true of influencers who can suffer from major negative media and follower repurcussions within relatively very short periods of time [18][19][20]. The next section considers the preference growth rates for these functions as they change within time according to:
+            $$ \frac{\partial}{\partial n}\text{IP}_o = \frac{1}{1 + e^{-\Delta c}}$$
+            $$ \frac{\partial}{\partial \text{CR}_o}\text{IP}_i = -\left(\frac{1}{1 + e^{-\Delta c}} \right)n(\text{CR}_o)^{-2}$$
+            $$ \frac{\partial}{\partial t}\text{IP}_o = \frac{\partial}{\partial n}\text{IP}_o \cdot \frac{\partial n}{\partial t} \text{ and } \frac{\partial}{\partial t}\text{IP}_i = \frac{\partial}{\partial \text{CR}_o}\text{IP}_i \cdot \frac{\partial \text{CR}_o}{\partial t}$$
+        </div>
+        <div id="citations">
+            <h2>References</h2>
+            <ol class="ref">
+                <li> Mariah L. Wellman, Ryan Stoldt, Melissa Tully & Brian Ekdale (2020) Ethics of Authenticity: Social Media Influencers and the Production of Sponsored Content, Journal of Media Ethics, 35:2, 68-82.</li>
+                <li> Alice Audrezet, Gwarlann de Kerviler & Julie Guidry Moulard (2020) Authenticity under threat: When social media influencers need to go beyond self-presentation, Journal of Business Research, 117, 557-569.</li>
+                <li> Lee, J.A. and Eastin, M.S. (2021) Perceived authenticity of social media influencers: scale development and validation, Journal of Research in Interactive Marketing, 15:4, 822-841.</li>
+                <li> Arturo Arriagada, Sophie Bishop (2021) Between Commerciality and Authenticity: The Imaginary of Social Media Influencers in the Platform Economy, Communication, Culture and Critique, 14:4, 568–586.</li>
+                <li> Essi Pöyry, Matilde Pelkonen, Emma Naumanen & Salla-Maaria Laaksonen (2019) A Call for Authenticity: Audience Responses to Social Media Influencer Endorsements in Strategic Communication, International Journal of Strategic Communication, 13:4, 336-351.</li>
+                <li> Sofia Bratu (2021) Can Social Media Influencers Shape Corporate Brand Reputation? Online Followers’ Trust, Value Creation, and Purchase Intentions, Review of Contemporary Philosophy, 18, 157-163.</li>
+                <li> Chen Lou & Shupei Yuan (2019) Influencer Marketing: How Message Value and Credibility Affect Consumer Trust of Branded Content on Social Media, Journal of Interactive Advertising, 19:1, 58-73.</li>
+                <li> Varela-Neira, C., Camoiras-Rodríguez, Z., García Garazo, T. (2023) Social Media Followers: The Role of Value Congruence and the Social Media Manager. In: Reis, J.L., Peter, M.K., Varela González, J.A., Bogdanović, Z. (eds) Marketing and Smart Technologies. Smart Innovation, Systems and Technologies, 337. Springer.</li>
+                <li> Jin, S.V., Muqaddam, A. and Ryu, E. (2019) Instafamous and social media influencer marketing, Marketing Intelligence & Planning, 37:5, 567-579.</li>
+                <li> Alhaddad, A. (2015) Perceived quality, brand image and brand trust as determinants of brand loyalty. Journal of Research in Business and Management, 3:4, 01-08.</li>
+                <li> Orzan, G., Platon, O. E., Stefănescu, C. D., & Orzan, M. (2016) CONCEPTUAL MODEL REGARDING THE INFLUENCE OF SOCIAL MEDIA MARKETING COMMUNICATION ON BRAND TRUST, BRAND AFFECT AND BRAND LOYALTY. Economic Computation & Economic Cybernetics Studies & Research, 50(1).</li>
+                <li> Chung-Wha (Chloe) Ki, Leslie M. Cuevas, Sze Man Chong, Heejin Lim (2020) Influencer marketing: Social media influencers as human brands attaching to followers and yielding positive marketing results by fulfilling needs, Journal of Retailing and Consumer Services, 55, Elsevier.</li>
+                <li> Kim, D.Y. and Kim, H.-Y. (2023) Social media influencers as human brands: an interactive marketing perspective, Journal of Research in Interactive Marketing, 17:1, 94-109.</li>
+                <li> Maria Teresa Borges-Tiago, Joanna Santiago, Flavio Tiago (2023) Mega or macro social media influencers: Who endorses brands better?, Journal of Business Research, 157, Elsevier.</li>
+                <li> Fernanda Polli Leite & Paulo de Paula Baptista (2022) The effects of social media influencers’ self-disclosure on behavioral intentions: The role of source credibility, parasocial relationships, and brand trust, Journal of Marketing Theory and Practice, 30:3, 295-311</li>
+                <li> Do Yuon Kim, Hye-Young Kim (2021) Trust me, trust me not: A nuanced view of influencer marketing on social media, Journal of Business Research, 134, 223-232, Elsevier.</li>
+                <li> Yan Shan, Kuan-Ju Chen & Jhih-Syuan (Elaine) Lin (2020) When social media influencers endorse brands: the effects of self-influencer congruence, parasocial identification, and perceived endorser motive, International Journal of Advertising, 39:5, 590-610, Taylor & Francis.</li>
+                <li> Kintu, B., & Ben-Slimane, K. (2020) Companies responses to scandal backlash caused by social media influencers. International Journal of Market Research, 62:6, 666-672.</li>
+                <li> Taillon, B. J., Mueller, S. M., Kowalczyk, C. M., & Jones, D. N. (2020) Understanding the relationships between social media influencers and their followers: the moderating role of closeness. Journal of Product & Brand Management, 29:6, 767-782.</li>
+                <li> Oliveira, C., Garcia, A. C. B., & Vivacqua, A. S. (2021) The cost structure of influencers’ posts: the risk of losing followers. Personal and Ubiquitous Computing, 25, 259-280.</li>
+            </ol>
+        </div>
+    </body>
+</html>
